@@ -1,0 +1,75 @@
+<html>
+<head>
+  <title>Where are you?</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <svg viewBox="-150 -80 900 600">
+    　　<rect x="-150" y="-80" width="900" height="600" fill="#FFFFFF"/>
+    　　<script>
+            var a=9
+            var b=3
+            var c=[["!","!","!","!","!","!","!"],["!","ん","!","!","!","!","!"],["!","わ","!","!","!","を","!"],["!","ら","り","る","れ","ろ","!"],["!","や","!","ゆ","!","よ","!"],["!","ま","み","む","め","も","!"],["!","は","ひ","ふ","へ","ほ","!"],["!","な","に","ぬ","ね","の","!"],["!","た","ち","つ","て","と","!"],["!","さ","し","す","せ","そ","!"],["!","か","き","く","け","こ","!"],["!","あ","い","う","え","お","!"],["!","!","!","!","!","!","!"]];
+            function down(){
+                 if (c[a][b+1]=="!"){
+                    document.getElementById("black_txt").textContent ="!";
+                 }else{
+                     b=b+1;
+                     document.getElementById("black_txt").textContent ="?";}
+            }
+            function up(){
+                 if (c[a][b-1]=="!"){
+                    document.getElementById("black_txt").textContent ="!";;
+                 }else{
+                     b=b-1;
+                     document.getElementById("black_txt").textContent ="?";}
+            }
+            function left(){
+                 if (c[a-1][b]=="!"){
+                    document.getElementById("black_txt").textContent ="!";}
+                 else{
+                     a=a-1;
+                     document.getElementById("black_txt").textContent ="?";}
+            }
+            function right(){
+              if (c[a+1][b]=="!"){
+                 document.getElementById("black_txt").textContent ="!";}
+              else{
+                  a=a+1;
+                  document.getElementById("black_txt").textContent ="?";}
+            }
+            function q(){
+　               answer = window.prompt("Where are you?","")
+　　          if(answer == c[a][b]){
+　　　            location.href = "https://nekofukurou752158039.wordpress.com/2020/06/06/where-are-youclear/";
+　　             }
+              else if(answer != "" && answer != null){
+　　　              window.alert("?");
+　　          }
+//キャンセルを選択した場合は警告ダイアログを表示
+　　          else{
+　　　            window.alert("cancel");
+　　                 }
+　　              }
+        </script>
+        <rect x="275" y="20" width="50" height="50" fill="#000000" onclick="up()" stroke="black"
+              >
+        </rect>
+        <rect x="275" y="140" width="50" height="50" fill="#000000" onclick="down()" stroke="black"
+            >
+        </rect>
+        <rect x="215" y="80" width="50" height="50" fill="#000000" onclick="left()" stroke="black"
+              >
+        </rect>
+        <rect x="335" y="80" width="50" height="50" fill="#000000" onclick="right()" stroke="black"
+              >
+        </rect>
+        <rect x="205" y="300" width="200" height="50" fill="#000000" onclick="q()" stroke="black"
+              >
+        </rect>
+        <rect x="275" y="80" width="50" height="50" stroke="black" fill="#FFFFFF"/>
+        <text x="300" y="115" text-anchor="middle" font-size="30" fill="black" id="black_txt"
+            cursor="default">?</text>
+  </svg>
+</body>
+</html>
